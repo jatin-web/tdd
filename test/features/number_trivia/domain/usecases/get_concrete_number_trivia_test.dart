@@ -7,6 +7,7 @@ import 'package:tdd_clean_architecture/features/number_trivia/domain/repositorie
 import 'package:tdd_clean_architecture/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
 
 import 'get_concrete_number_trivia_test.mocks.dart';
+
 @GenerateMocks([NumberTriviaRepository])
 void main() {
   late MockNumberTriviaRepository mockNumberTriviaRepository;
@@ -26,7 +27,7 @@ void main() {
     ).thenAnswer((_) async => Right(tNumberTrivia));
 
     // Act
-    var result = await useCase.execute(number: tNumber);
+    var result = await useCase(Params(number: tNumber));
 
     // Assert
 
